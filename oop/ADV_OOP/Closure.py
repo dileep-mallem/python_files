@@ -27,7 +27,7 @@ print(double.__closure__[0].cell_contents) # 2
 def make_counter() : 
     count=0 
     def step() : 
-        nonlocal count 
+        nonlocal count # nonloacl if it acces from outer fn , from normal outside means use global 
         count += 1 
         return count 
     return step 
