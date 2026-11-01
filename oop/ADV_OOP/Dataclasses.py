@@ -65,3 +65,25 @@ b=Student("Ojas",["Python","Java"])
 a.subjects.append("ML")
 print(a.subjects) # ['ML']
 print(b) # Student(name='Ojas', subjects=['Python', 'Java']) 
+
+# Field()
+# field() customizes an individual field. Common parameters include default, default_factory, init, repr, compare, hash,
+# metadata and kw_only. Example: password: str = field(repr=False) keeps the field out of the generated representation;
+# this is not a substitute for secure secret handling
+
+# __post__int__()
+# If the generated __init__ is used, it calls __post_init__ after assigning fields. Use it for validation 
+
+@dataclass
+class Student:
+    name: str
+    marks: float 
+
+    def __post_init__(self) : 
+        if not 0<=self.marks <=100 : 
+            raise ValueError("Marks must be between 0 and 100")
+        
+s1,s2=Student("Jon Snow",90),Student("Muadib",-100)
+print(s1.__doc__) # Student(name: str, marks: float) 
+# print(s2) # ValueError 
+ 
