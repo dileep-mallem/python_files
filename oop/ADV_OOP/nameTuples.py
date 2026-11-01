@@ -38,3 +38,8 @@ class EvaluationResult(NamedTuple) :
     recall: float = 0.0
 result=EvaluationResult(0.95,0.93)
 print(result.accuracy) # 0.95 
+
+# DataClass vs namedTRuples 
+# Use a dataclass for richer data objects with defaults, methods, optional mutability, validation and field customization
+# Use a named tuple for a lightweight immutable record that should retain tuple behavior and positional unpacking
+# useordinary tuple for simple sequences without named fields
